@@ -161,6 +161,9 @@ body {
 .footer {
   text-align: center;
   color: white;
+  animation: moveInForm .6s ease-out 2s;
+  -webkit-animation: moveInForm .6s ease-out 2.2s;
+  animation-fill-mode: backwards;
 }
 
 .footer__container {
