@@ -1,3 +1,156 @@
-* {
-  color: red;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: black;
+  box-sizing: border-box;
+  position: relative;
+
+  height: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url('../images/contact-us.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.wrapper {
+  max-width: 102.4rem;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.header {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.header__logo-container {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+
+.heading-primary {
+  text-align: center;
+  padding: 2rem 0;
+  backface-visibility: hidden;
+}
+
+.heading-primary--main {
+  display: block;
+  text-transform: uppercase;
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: white;
+  animation: moveInLeft 1.5s ease-out;
+}
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.user-form {
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  animation: moveInForm .6s ease-out 1.35s;
+  animation-fill-mode: backwards;
+  margin-bottom: 3rem;
+}
+
+.user-form p {
+  font-size: 2rem;
+  padding: 1rem 0;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-details input {
+  max-width: 50rem;
+  width: 70%;
+  height: 4.5rem;
+  padding: 1rem 1rem;
+  margin: 1.5rem auto;
+  font-size: 1.6rem;
+  outline: 0;
+}
+
+.action-buttons {
+  padding: 2rem 0;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  width: 20rem;
+  border-radius: 10rem;
+  padding: 1rem;
+  transition: all .2s;
+  font-size: 1.6rem;
+  outline: none;
+  background: #f3993e;
+}
+
+.btn:hover {
+  transform: translateY(-.3rem);
+  box-shadow: 0 1rem 2rem rgba(252, 252, 252, .2);
+}
+
+.btn:active {
+  transform: translateY(-.1rem);
+  box-shadow: 0 .5rem 1rem rgba(252, 252, 252, .2);
+}
+
+/* for primary heading */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* for Form */
+@keyframes moveInForm {
+  0% {
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }

@@ -5,10 +5,35 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Ethereal Machines @CES2018</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/app.css') }}" />
 </head>
 <body>
-  <h1>Ethereal Machines @CES-2018</h1>
+  <header class="header">
+    <div class="header__logo-container">
+      <img src="{{ url_for('static', filename='images/company-logo.svg') }}" alt="Logo" width="40" height="40">
+    </div>
+    <h1 class="heading-primary">
+      <span class="heading-primary--main">Register Your Interest</span>
+    </h1>
+  </header>
+
+  <section class="form-container wrapper">
+    <form action="/getcoupon" class="user-form">
+      <p>Share your details to avial your coupon code!</p>
+      <div class="user-details">
+        <input required type="text" placeholder="Your Name...">
+        <input required type="email" placeholder="Email Id...">
+        <input required type="text" placeholder="Contact Number...">
+        <input required type="text" placeholder="Address...">
+      </div>
+      <p class="security-msg"><i class="fa fa-lock"></i> We hate spam and promise to keep your data safe</p>
+      <div class="action-buttons">
+        <button type="submit" class="btn">Submit</button>
+      </div>
+    </form>
+  </section>
 
   <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
