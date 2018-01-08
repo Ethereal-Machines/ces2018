@@ -20,7 +20,8 @@
   </header>
 
   <section class="form-container wrapper">
-    <form action="/getcoupon" class="user-form">
+    <form action="/getcoupon/" class="user-form" method="POST">
+      {{ form.csrf_token }}
       <p>Share your details to avail your coupon code!</p>
       <div class="user-details">
         <input required type="text" placeholder="Your Name...">
@@ -28,6 +29,7 @@
         <input required type="text" placeholder="Contact Number...">
         <input required type="text" placeholder="Address...">
       </div>
+      {{ form.recaptcha }}
       <p class="security-msg"><i class="fa fa-lock"></i> We hate spam and promise to keep your data safe</p>
       <div class="action-buttons">
         <button type="submit" class="btn">Submit</button>
