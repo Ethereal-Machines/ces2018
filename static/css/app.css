@@ -56,7 +56,9 @@ body {
   font-size: 4.5rem;
   font-weight: 400;
   color: white;
-  animation: moveInLeft 1.5s ease-out;
+  animation: moveInLeft 1.5s ease-out 1s;
+  animation-fill-mode: backwards;
+  -webkit-animation-fill-mode: backwards;
 }
 
 .heading-primary--sub {
@@ -70,7 +72,8 @@ body {
   text-align: center;
   padding: 2rem 0;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-  animation: moveInForm .6s ease-out 1.35s;
+  animation: moveInForm .6s ease-out 2s;
+  -webkit-animation: moveInForm .6s ease-out 1.35s;
   animation-fill-mode: backwards;
   margin-bottom: 3rem;
 }
@@ -153,4 +156,23 @@ body {
     opacity: 1;
     transform: translate(0);
   }
+}
+
+.footer {
+  text-align: center;
+  color: white;
+}
+
+.footer__container {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.footer__logo {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+::selection {
+  background: rgba(255, 166, 0, 0.5);
 }
