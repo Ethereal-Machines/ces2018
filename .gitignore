@@ -1,3 +1,4 @@
 *.pyc
 *.py~
+abc.sqlite
 prod_config.cfg
