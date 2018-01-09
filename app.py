@@ -108,9 +108,10 @@ def index():
     if flask.request.is_xhr:
         out['success'] = False
         out['msg'] = 'Form Validation Failed'
+        out['error_fields'] = {}
         for fieldName, errorMessages in form.errors.items():
             APP.logger.info("field: %s, error: %s", fieldName, errorMessages)
-            out[fieldName] = errorMessages
+            out['error_fields'][fieldName] = errorMessages
         return flask.jsonify(out), 400
     return flask.render_template('index.html', form=form)
 
