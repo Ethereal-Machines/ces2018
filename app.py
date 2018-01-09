@@ -58,7 +58,7 @@ def index():
                 "discount with this email")
             APP.logger.warn(
                 "Another attempt for discount of user: %s", user.email)
-            return flask.jsonify(out)
+            return flask.jsonify(out), 400
 
         # add to the database
         user = model.User(
@@ -110,7 +110,7 @@ def index():
         out['success'] = False
         out['msg'] = 'Form Validation Failed'
         for fieldName, errorMessages in form.errors.items():
-            APP.logger.debug("field: %s, error: %s", fieldName, errorMessages)
+            APP.logger.info("field: %s, error: %s", fieldName, errorMessages)
             out[fieldName] = errorMessages
         return flask.jsonify(out), 400
     return flask.render_template('index.html', form=form)
