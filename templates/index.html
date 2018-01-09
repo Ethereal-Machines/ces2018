@@ -20,22 +20,26 @@
   </header>
 
   <section class="form-container wrapper">
-    <form action="/getcoupon/" class="user-form" method="POST">
+    <form class="user-form">
       {{ form.csrf_token }}
       <p>Share your details to avail your coupon code!</p>
       <div class="user-details">
-        <input required type="text" placeholder="Your Name...">
-        <input required type="email" placeholder="Email Id...">
-        <input required type="text" placeholder="Contact Number...">
-        <input required type="text" placeholder="Address...">
+        <input type="text" name="userName" placeholder="Your Name...">
+        <input type="email" name="userEmail" placeholder="Email Id...">
+        <input type="text" name="contactNumber" placeholder="Contact Number...">
+        <input type="text" name="address" placeholder="Address...">
       </div>
-      {{ form.recaptcha }}
+      <!-- {{ form.recaptcha }} -->
+      <p class="error-msg hide"></p>
       <p class="security-msg"><i class="fa fa-lock"></i> We hate spam and promise to keep your data safe</p>
+      <i class="fa fa-spinner fa-pulse fa-2x fa-fw loading-animation hide"></i>
       <div class="action-buttons">
-        <button type="submit" class="btn">Submit</button>
+        <button type="submit" id="submit-btn" class="btn btn--orange">Submit</button>
       </div>
     </form>
   </section>
+
+  <!-- <button class="btn btn--modal">Click me</button> -->
 
   <footer class="footer">
     <div class="footer__container wrapper">
@@ -44,6 +48,17 @@
     </div>
   </footer>
 
+  <div class="success-modal hide">
+    <div class="success-modal__content">
+      <img src="{{ url_for('static', filename='images/company-logo.svg') }}" alt="Logo" width="40" height="40" class="success-modal__logo">
+      <img src="{{ url_for('static', filename='images/estrella-render.svg') }}" alt="Ethereal Ray" width="100" height="100">
+      <h1 class="success-modal__heading">Thanks for booking your pre-order!</h1>
+      <p class="success-modal__msg">An email with the details will be sent to your provided email id.</p>
+      <button class="btn btn--close-modal">OK</button>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>
