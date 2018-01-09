@@ -10,4 +10,3 @@ class DiscountForm(Form):
     email = StringField("email", validators=[DataRequired()])
     address = TextAreaField("address", validators=[DataRequired()])
     cellphone= StringField("cellphone", validators=[DataRequired()])
-    recaptcha = RecaptchaField()
