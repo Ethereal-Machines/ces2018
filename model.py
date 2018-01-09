@@ -20,7 +20,7 @@ def create_session(db_url, engine, Base):
 
 def get_token():
     ''' Return a token '''
-    return uuid.uuid4.hex
+    return str(uuid.uuid4().hex).lower()[:6]
 
 
 class User(Base):
@@ -40,3 +40,7 @@ class User(Base):
         assert '@' in address
         return address
 
+    @classmethod
+    def get_user_by_email(cls, session, emailid):
+        ''' Get the user from email id '''
+        return session.query(cls).filter(cls.email==emailid).first()
