@@ -64,8 +64,9 @@
           openModal();
         },
         error: function(xhr) {
+          var erroMsg = xhr.responseJSON.msg;
           errorMsg.removeClass('hide');
-          errorMsg.text('Please fill in all the details to claim your coupon.');
+          errorMsg.text(erroMsg);
           /* Removing all the other error messages */
           errorFields.text("");
           reset();
@@ -94,7 +95,7 @@
               // }
             }
           }
-          console.log(xhr);
+          // console.log(xhr);
         }
       });
     }

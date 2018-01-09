@@ -285,7 +285,7 @@ body {
 
 @media screen and (min-width:768px) {
   .success-modal__content {
-    width: 50%;
+    width: 70%;
   }
 }
 
