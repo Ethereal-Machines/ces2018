@@ -17,7 +17,7 @@
     var emailError = $('#email-error');
     var cellphoneError = $('#cellphone-error');
     var addressError = $('#address-error');
-    var recaptchaError = $('#captcha-error');
+    // var recaptchaError = $('#captcha-error');
 
     var errorMsg = $('.error-msg');
     var loadingAnimation = $('.loading-animation');
@@ -38,6 +38,7 @@
 
     /* Private methods go here */
     function submitForm() {
+      errorMsg.text('').addClass('hide');
       submitBtn.addClass('hide');
       loadingAnimation.removeClass('hide');
       var serializedData = form.serializeArray();
@@ -75,7 +76,7 @@
             for (var element in errorData) {
               if (element === 'name') {
                 var msg = errorData[element][0];
-                $('#name-error').html(html + msg);
+                nameError.html(html + msg);
               } else if (element === 'email') {
                 var msg = errorData[element][0];
                 emailError.html(html + msg);
@@ -85,13 +86,15 @@
               } else if (element === 'address') {
                 var msg = errorData[element][0];
                 addressError.html(html + msg);
-              } else if (element === 'recaptcha') {
-                var msg =  errorData[element][0];
-                recaptchaError.html(html + msg);
-              }
+              } 
+              /* Corresponds to captcha code */
+              // else if (element === 'recaptcha') {
+              //   var msg =  errorData[element][0];
+              //   recaptchaError.html(html + msg);
+              // }
             }
           }
-          // console.log(xhr.responseJSON.error_fields);
+          console.log(xhr);
         }
       });
     }

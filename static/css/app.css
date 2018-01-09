@@ -119,7 +119,7 @@ body {
 .error-msg {
   max-width: 50rem;
   width: 90%;
-  margin: 0 auto;
+  margin: 1rem auto 0;
   color: red;
   border: 1px solid #fff;
   padding-right: 1rem;
