@@ -43,6 +43,10 @@
         type: 'POST',
         data: JSON.stringify(formData),
         dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        beforeSend: function(request) {
+          request.setRequestHeader("X-CSRF-Token", formData['csrf_token']);
+        },
         success: function() {
           errorMsg.text("");
           errorMsg.addClass('hide');
