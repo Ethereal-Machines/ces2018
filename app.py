@@ -37,7 +37,6 @@ from model import engine, Base
 import forms
 
 SESSION = model.create_session(APP.config['DB_URL'], engine, Base)
-EMAIL_BODY = APP.config['EMAIL_BODY']
 
 
 @APP.route("/", methods=['GET', 'POST'])
@@ -83,12 +82,15 @@ def index():
         )
         # try sending the email
         try:
+            # get the html email body
+            EMAIL_BODY = flask.render_template('email.html', token=user.token)
+            print EMAIL_BODY
             sg = sendgrid.SendGridAPIClient(
                 apikey=APP.config['SENDGRID_API_KEY'])
             from_email = Email(APP.config['SENDGRID_DEFAULT_FROM'])
             to_email = Email(form.data.get('email'))
             subject = 'Ethereal Ray: Discount Coupon Code'
-            content = Content("text/html", EMAIL_BODY % (user, user.token))
+            content = Content("text/html", EMAIL_BODY)
             mail = Mail(from_email, subject, to_email, content)
             response = sg.client.mail.send.post(request_body=mail.get())
         except Exception as e:
