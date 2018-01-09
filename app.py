@@ -11,7 +11,6 @@ from sendgrid.helpers.mail import Email, Content, Mail
 
 # flask extensions
 from flask_wtf.csrf import CsrfProtect
-from flask_sendgrid import SendGrid
 
 APP = Flask(__name__)
 APP.config.from_object('config')
