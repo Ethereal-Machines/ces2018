@@ -11,6 +11,14 @@
     var modalCloseButton = $('.btn--close-modal');
     var successModal = $('.success-modal');
     var form = $('.user-form');
+    /* Fields to show the errors */
+    var errorFields = $('.field-error-msg');
+    var nameError = $('#name-error');
+    var emailError = $('#email-error');
+    var cellphoneError = $('#cellphone-error');
+    var addressError = $('#address-error');
+    var recaptchaError = $('#captcha-error');
+
     var errorMsg = $('.error-msg');
     var loadingAnimation = $('.loading-animation');
     var submitBtn = $('#submit-btn');
@@ -50,14 +58,40 @@
         success: function() {
           errorMsg.text("");
           errorMsg.addClass('hide');
+          form[0].reset();
           reset();
           openModal();
         },
         error: function(xhr) {
           errorMsg.removeClass('hide');
-          errorMsg.text('Please fill in all the details in order to claim your coupoun.');
+          errorMsg.text('Please fill in all the details to claim your coupon.');
+          /* Removing all the other error messages */
+          errorFields.text("");
           reset();
-          console.log(xhr);
+
+          var errorData = xhr.responseJSON.error_fields;
+          var html = `<sup>* </sup>`;
+          if (errorData !== undefined) {
+            for (var element in errorData) {
+              if (element === 'name') {
+                var msg = errorData[element][0];
+                $('#name-error').html(html + msg);
+              } else if (element === 'email') {
+                var msg = errorData[element][0];
+                emailError.html(html + msg);
+              } else if (element === 'cellphone') {
+                var msg = errorData[element][0];
+                cellphoneError.html(html + msg);
+              } else if (element === 'address') {
+                var msg = errorData[element][0];
+                addressError.html(html + msg);
+              } else if (element === 'recaptcha') {
+                var msg =  errorData[element][0];
+                recaptchaError.html(html + msg);
+              }
+            }
+          }
+          // console.log(xhr.responseJSON.error_fields);
         }
       });
     }

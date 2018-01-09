@@ -6,7 +6,8 @@
   <title>Ethereal Machines @CES2018</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/libs/font-awesome-4.7.0/css/font-awesome.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/app.css') }}" />
 </head>
 <body>
@@ -25,11 +26,16 @@
       <p>Share your details to avail your coupon code!</p>
       <div class="user-details">
         <input type="text" name="name" placeholder="Your Name...">
+        <div class="field-error-msg" id="name-error"></div>
         <input type="email" name="email" placeholder="Email Id...">
+        <div class="field-error-msg" id="email-error"></div>
         <input type="text" name="cellphone" placeholder="Contact Number...">
+        <div class="field-error-msg" id="cellphone-error"></div>
         <input type="text" name="address" placeholder="Address...">
+        <div class="field-error-msg" id="address-error"></div>
       </div>
       {{ form.recaptcha }}
+      <div class="field-error-msg" id="captcha-error"></div>
       <p class="error-msg hide"></p>
       <p class="security-msg"><i class="fa fa-lock"></i> We hate spam and promise to keep your data safe</p>
       <i class="fa fa-spinner fa-pulse fa-2x fa-fw loading-animation hide"></i>
@@ -58,7 +64,7 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='js/libs/jquery.min.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>

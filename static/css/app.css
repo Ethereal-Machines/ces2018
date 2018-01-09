@@ -142,6 +142,19 @@ body {
   outline: 0;
 }
 
+.field-error-msg {
+  width: 90%;
+  max-width: 50rem;
+  text-align: left;
+  color: red;
+  margin: 0 auto;
+}
+
+#captcha-error {
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+}
+
 .action-buttons {
   padding: 2rem 0;
 }
