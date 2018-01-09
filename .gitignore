@@ -3,3 +3,4 @@
 abc.sqlite
 prod_config.cfg
 store.log
+*.DS_Store
